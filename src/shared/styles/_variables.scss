@@ -33,3 +33,15 @@ $sidebar-width: 250px;
 // a filter needs to be applied. Can be generated from hex
 // here: https://angel-rs.github.io/css-color-filter-generator/
 $primary-green-light-filter: brightness(0) saturate(100%) invert(82%) sepia(37%) saturate(6198%) hue-rotate(118deg) brightness(110%) contrast(107%); 
+
+.scrollable-wrapper{
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
