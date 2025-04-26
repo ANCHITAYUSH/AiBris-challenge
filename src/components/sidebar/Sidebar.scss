@@ -71,6 +71,7 @@
     }
 
     .euiSideNavItem {
+
       &Button__label {
         color: $white;
         font-size: 18px;
@@ -152,7 +153,7 @@
   }
 
   &__footer {
-    padding: 16px;
+    padding: 8px;
   }
 
   &__logout-button {
@@ -160,7 +161,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 16px;
+    padding: 12px 8px;
     color: $white;
     font-size: 18px;
     font-weight: 700;
