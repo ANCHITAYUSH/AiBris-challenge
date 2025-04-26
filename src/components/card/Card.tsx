@@ -11,7 +11,7 @@ import {
 
 import './Card.scss';
 
-interface CardProps {
+export interface CardProps {
   title: string;
   iconType: string;
   currentScore: string;

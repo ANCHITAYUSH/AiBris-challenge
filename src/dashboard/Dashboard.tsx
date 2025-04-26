@@ -1,61 +1,62 @@
 import { EuiCard, EuiFlexGroup, EuiFlexItem, EuiIcon, EuiText } from "@elastic/eui"
 import { staticImages } from '../shared/images'
 import Card from '../components/card/Card'
+import { title } from "process";
+
+const cardItems = [
+  {
+    title: "Reliability",
+    iconType: "lock",
+    currentScore: "4%",
+    potentialSavings: "7k",
+    unit: "Hours / year",
+  },
+  {
+    title: "Security",
+    iconType: "lock",
+    currentScore: "76%",
+    potentialSavings: "2k",
+    unit: "Risk Points",
+  },
+  {
+    title: "Economics",
+    iconType: "currency",
+    currentScore: "45%",
+    potentialSavings: "$50k",
+    unit: "USD / year",
+  },
+  {
+    title: "User experience",
+    iconType: "lock",
+    currentScore: "71%",
+    potentialSavings: "200k",
+    unit: "Hours / year",
+  },
+  {
+    title: "Environment",
+    iconType: "lock",
+    currentScore: "49%",
+    potentialSavings: "1M",
+    unit: "Tco2e / year",
+  }
+]
 
 function Dashboard() {
 
   return <> 
     <div className="scrollable-wrapper">
       <EuiFlexGroup gutterSize={"m"} style={{ marginTop: '1rem'}}>
-        <EuiFlexItem>
-          <Card
-            title="Reliability"
-            iconType="lock"
-            currentScore="4%"
-            potentialSavings="7k"
-            unit="Hours / year"
-          />
-        </EuiFlexItem>
-
-        <EuiFlexItem>
-          <Card
-            title="Security"
-            iconType="lock"
-            currentScore="76%"
-            potentialSavings="2k"
-            unit="Risk Points"
-          />
-        </EuiFlexItem>
-
-        <EuiFlexItem>
-          <Card
-            title="Economics"
-            iconType="currency"
-            currentScore="45%"
-            potentialSavings="$50k"
-            unit="USD / year"
-          />
-        </EuiFlexItem>
-
-        <EuiFlexItem>
-          <Card
-            title="User experience"
-            iconType="lock"
-            currentScore="71%"
-            potentialSavings="200k"
-            unit="Hours / year"
-          />
-        </EuiFlexItem>
-
-        <EuiFlexItem>
-          <Card
-            title="Environment"
-            iconType="lock"
-            currentScore="49%"
-            potentialSavings="1M"
-            unit="Tco2e / year"
-          />
-        </EuiFlexItem>
+        {cardItems.map(item => (
+          <EuiFlexItem>
+            <Card
+              title={item.title}
+              iconType={item.iconType}
+              currentScore={item.currentScore}
+              potentialSavings={item.potentialSavings}
+              unit={item.unit}
+            />
+          </EuiFlexItem>
+        ))}
       </EuiFlexGroup>
     </div>
     
