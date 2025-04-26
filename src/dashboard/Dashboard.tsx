@@ -1,10 +1,11 @@
 import { EuiCard, EuiFlexGroup, EuiFlexItem, EuiIcon, EuiText } from "@elastic/eui"
 import { staticImages } from '../shared/images'
 import Card from '../components/card/Card'
-import { title } from "process";
+import { useState } from "react"
 
 const cardItems = [
   {
+    id: 1,
     title: "Reliability",
     iconType: "lock",
     currentScore: "4%",
@@ -12,6 +13,7 @@ const cardItems = [
     unit: "Hours / year",
   },
   {
+    id: 2,
     title: "Security",
     iconType: "lock",
     currentScore: "76%",
@@ -19,6 +21,7 @@ const cardItems = [
     unit: "Risk Points",
   },
   {
+    id: 3,
     title: "Economics",
     iconType: "currency",
     currentScore: "45%",
@@ -26,6 +29,7 @@ const cardItems = [
     unit: "USD / year",
   },
   {
+    id: 4,
     title: "User experience",
     iconType: "lock",
     currentScore: "71%",
@@ -33,6 +37,7 @@ const cardItems = [
     unit: "Hours / year",
   },
   {
+    id: 5,
     title: "Environment",
     iconType: "lock",
     currentScore: "49%",
@@ -43,17 +48,20 @@ const cardItems = [
 
 function Dashboard() {
 
+  const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
+
   return <> 
     <div className="scrollable-wrapper">
       <EuiFlexGroup gutterSize={"m"} style={{ marginTop: '1rem'}}>
         {cardItems.map(item => (
-          <EuiFlexItem>
+          <EuiFlexItem className="rounded-corner" onClick={() => setSelectedCardId(item.id)}>
             <Card
               title={item.title}
               iconType={item.iconType}
               currentScore={item.currentScore}
               potentialSavings={item.potentialSavings}
               unit={item.unit}
+              isSelected={selectedCardId === item.id}
             />
           </EuiFlexItem>
         ))}

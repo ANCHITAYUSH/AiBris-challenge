@@ -1,44 +1,79 @@
+@import '../../shared/styles/_variables';
+
 .cardContainer {
-    width: 350px;
-    border-radius: 10%;
-    background-color: #f0fdfc;
-    text-align: center;
-    padding: 24px;
-  }
-  
-  .title {
-    font-weight: bold;
+  width: 270px;
+  background-color: #f0fdfc;
+  text-align: center;
+  padding: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transform: translateZ(0);
+  border-radius: 12px;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+    background-color: #f9fafb;
   }
 
-  .currentScore{
-    font-size: 32px;
-    font-weight: bold;
+  &.selected{
+    background-color: $primary-blue;
+    
+    .icon{
+      color: #f0fdfc;
+    }
   }
-
-  .potentialSavings{
-    font-size: 48px;
-    font-weight: bold;
-  }
-
-  .unit{
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 8px;
-  }
-
-  .primaryColour{
-    color: #00bfb3;
-    width: 100%;
-  }
+}
   
-  .secondaryColour {
-    color: #006bb4;
-    width: 100%;
+.title{
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+
+  &.selected{
+    color: #f0fdfc;
   }
+}
+
+.currentScore{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.potentialSavings{
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.unit{
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.primaryColour{
+  color: #00bfb3;
+  width: 100%;
   
-  .label {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: left;
+  &.selected{
+    color: #f0fdfc;
   }
-  
+}
+
+.secondaryColour {
+  color: $primary-blue;
+  width: 100%;
+ 
+  &.selected{
+    color: #f0fdfc;
+  }
+}
+
+.label {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  width: 80px;
+}

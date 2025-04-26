@@ -17,6 +17,7 @@ export interface CardProps {
   currentScore: string;
   potentialSavings: string;
   unit: string;
+  isSelected: boolean;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -25,30 +26,31 @@ const Card: React.FC<CardProps> = ({
   currentScore,
   potentialSavings,
   unit,
+  isSelected,
 }) => {
+
   return (
     <EuiCard
       title
       paddingSize="none"
-      className={"cardContainer"}
+      className={`cardContainer ${ isSelected ? `selected` : ``}`}
       display="plain"
+      hasBorder={true}
     >
       <EuiFlexGroup direction="column" alignItems="center" gutterSize="s">
-        <EuiFlexGroup direction='row'>
+        <EuiFlexGroup direction='row' alignItems="center">
             <EuiFlexItem grow={false} className={"icon"}>
                 <EuiIcon type={iconType} size="xl" />
             </EuiFlexItem>
 
-            <EuiFlexItem grow={false} className={"title"}>
-                <EuiTitle size="s">
-                    <h3>{title}</h3>
-                </EuiTitle>
+            <EuiFlexItem grow={false} className={`title ${ isSelected ? `selected` : ``}`}>
+                <h2>{title}</h2>
             </EuiFlexItem>  
         </EuiFlexGroup>
 
         <EuiSpacer size="m" />
 
-        <EuiFlexGroup direction='row' className='primaryColour' alignItems="center">
+        <EuiFlexGroup direction='row' className={`primaryColour ${ isSelected ? `selected` : ``}`} alignItems="center">
             <EuiFlexItem grow={2} className={'valueBox'}>
                 <EuiText className={"currentScore"}>
                     {currentScore}
@@ -63,7 +65,7 @@ const Card: React.FC<CardProps> = ({
 
         <EuiSpacer size="m" />
 
-        <EuiFlexGroup direction='row' className='secondaryColour' alignItems="center">
+        <EuiFlexGroup direction='row' className={`secondaryColour ${ isSelected ? `selected` : ``}`} alignItems="center">
             <EuiFlexItem grow={2} className={'valueBox'}>
                 <EuiText className={"potentialSavings"}>
                     {potentialSavings}
